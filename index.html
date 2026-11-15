@@ -1,6 +1,4 @@
 <!doctype html>
-<html lang="en-GB">
-<head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -31,15 +29,15 @@ img{max-width:100%;display:block}
 .mono{font-family:var(--mono);font-weight:500;letter-spacing:0}
 
 /* ---------- top strip ---------- */
-.top{position:fixed;z-index:30;top:0;left:0;right:0;height:var(--top-h);display:flex;align-items:center;gap:8px;
-  padding:0 max(12px,env(safe-area-inset-right)) 0 max(14px,env(safe-area-inset-left));
-  background:linear-gradient(#121213e6,#12121300);pointer-events:none}
+.top{position:fixed;z-index:30;top:0;left:0;right:0;height:calc(52px + env(safe-area-inset-top,0px));display:flex;align-items:center;gap:8px;
+  padding:env(safe-area-inset-top,0px) max(12px,env(safe-area-inset-right)) 0 max(14px,env(safe-area-inset-left));
+  background:linear-gradient(#121213f5 0,#121213e6 62%,#12121300);pointer-events:none}
 .top>*{pointer-events:auto}
 .top{transition:transform .35s var(--ease),opacity .35s}
 .past-lane .top{transform:translateY(-110%);opacity:0;pointer-events:none}
 .mark{font-weight:900;font-stretch:70%;font-size:19px;letter-spacing:.01em;text-decoration:none;margin-right:auto;line-height:1;display:flex;align-items:center;gap:8px;min-height:44px}
 .mark i{display:inline-block;width:22px;height:14px;border:2.5px solid var(--line);border-radius:2px}
-.top a.skip,.top button{font:600 15px/1 var(--cond);font-stretch:85%;color:var(--white);background:#ffffff14;border:1px solid #ffffff2e;border-radius:999px;min-height:44px;padding:0 14px;display:inline-flex;align-items:center;gap:7px;text-decoration:none;cursor:pointer}
+.top a.skip,.top button{font:600 15px/1 var(--cond);font-stretch:85%;color:var(--white);background:#0d0e12d9;border:1px solid #ffffff2e;border-radius:999px;min-height:44px;padding:0 14px;display:inline-flex;align-items:center;gap:7px;text-decoration:none;cursor:pointer}
 .top button[aria-pressed="true"]{background:var(--line);color:var(--ink);border-color:var(--line)}
 .snd-ico{width:16px;height:16px}
 .top button[hidden]{display:none}
@@ -66,7 +64,7 @@ img{max-width:100%;display:block}
 .stage{position:relative}
 #gl,.veil,.sheet,.cue{display:none}
 .front img{width:100%;height:auto}
-.beats{list-style:none;margin:0;padding:22px 18px 34px;display:grid;gap:36px;max-width:760px}
+.beats{list-style:none;margin:0;padding:22px 20px 34px;display:grid;gap:36px;max-width:760px}
 .beat h1,.beat h2{margin:0;font-weight:900;font-stretch:62%;line-height:.88;letter-spacing:-.005em;text-transform:uppercase;text-wrap:balance}
 .beat h1{font-size:clamp(2.5rem,12.4vw,6.4rem)}
 .beat h2{font-size:clamp(2.4rem,11.6vw,5.8rem)}
@@ -81,7 +79,7 @@ img{max-width:100%;display:block}
 .q blockquote{margin:0}
 .q blockquote p{margin:0;font-size:16px;line-height:1.38;color:#e4e7ef;font-weight:500}
 .q figcaption{font-family:var(--mono);font-size:15px;color:var(--yel);margin-top:4px}
-.still{display:block;width:100%;max-width:640px;height:auto;border-radius:10px;margin:0 18px;max-width:calc(100% - 36px)}
+.still{display:block;width:100%;max-width:640px;height:auto;border-radius:10px;margin:0 20px;max-width:calc(100% - 40px)}
 .is-live .still{display:none}
 
 /* the paper check sheet */
@@ -100,7 +98,7 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
 .live #stamp:not(.in){transform:rotate(-16deg) scale(1.7);opacity:0}
 
 /* their sign: white board, blue letters, the number in yellow and black */
-.signp{background:var(--wall);color:var(--blue);padding:26px 18px 28px;border-top:8px solid var(--yel)}
+.signp{background:var(--wall);color:var(--blue);padding:26px 20px 28px;border-top:8px solid var(--yel)}
 .signp .lbl{font:700 15px/1.2 var(--mono);color:#3d4458;margin:0 0 8px}
 .signp ul{list-style:none;margin:0;padding:0}
 .signp li{font-weight:900;font-stretch:70%;text-transform:uppercase;font-size:clamp(1.7rem,min(12.4vw,5.9vh),4.6rem);line-height:.98;letter-spacing:.005em}
@@ -115,7 +113,7 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
 .is-live .front img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;will-change:transform;backface-visibility:hidden}
 .is-live .beats{position:absolute;inset:0;padding:0;max-width:none;display:block;z-index:3;pointer-events:none}
 .is-live .beat{position:absolute;inset:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;
-  padding:calc(var(--top-h) + 42px) 18px calc(var(--bar-h) + 14px) max(18px,env(safe-area-inset-left));opacity:0;visibility:hidden}
+  padding:calc(var(--top-h) + 42px) max(20px,env(safe-area-inset-right)) calc(var(--bar-h) + 14px) max(20px,env(safe-area-inset-left));opacity:0;visibility:hidden}
 .is-live .beat.on{visibility:visible;will-change:opacity}
 .is-live .beat.act a{pointer-events:auto}
 .is-live .beat .hd{grid-row:1}
@@ -126,17 +124,17 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
   background:linear-gradient(180deg,#0d0e12f2 0,#0d0e12b3 20%,#0d0e1200 36%),linear-gradient(0deg,#0d0e12f5 0,#0d0e12d9 24%,#0d0e1200 46%)}
 .is-live .beat.pass::before{background:#0d0e12a6}
 .is-live .beat.hero{opacity:1;padding:0}
-.is-live .beat.hero .ft{grid-area:auto;position:absolute;left:18px;right:18px;top:calc(max(75vw,46vh) + 14px)}
+.is-live .beat.hero .ft{grid-area:auto;position:absolute;left:max(20px,env(safe-area-inset-left));right:max(20px,env(safe-area-inset-right));top:calc(max(75vw,46vh) + 14px)}
 .is-live .beat.pass{grid-template-rows:auto auto minmax(0,1fr) auto}
 .is-live .beat.pass .paper{grid-row:2;margin-top:10px}
 .is-live .beat.pass .ft{grid-row:4}
 .is-live .beat.sign{opacity:1;visibility:visible;padding:0;display:block}
 .is-live .beat.sign.act{pointer-events:auto}
 .is-live .beat.sign.on .signp{will-change:transform}
-.is-live .signp{position:absolute;inset:0;border-top:0;padding:calc(var(--top-h) + 22px) 18px calc(var(--bar-h) + 14px);transform:translate3d(0,101%,0);
+.is-live .signp{position:absolute;inset:0;border-top:0;padding:calc(var(--top-h) + 22px) max(20px,env(safe-area-inset-right)) calc(var(--bar-h) + 14px) max(20px,env(safe-area-inset-left));transform:translate3d(0,101%,0);
   background:linear-gradient(var(--bay) 0,var(--bay) calc(var(--top-h) + 2px),var(--yel) calc(var(--top-h) + 2px),var(--yel) calc(var(--top-h) + 10px),var(--wall) calc(var(--top-h) + 10px));
   display:flex;flex-direction:column;justify-content:center}
-.is-live .sheet{display:flex;align-items:center;gap:10px;position:absolute;z-index:4;left:max(18px,env(safe-area-inset-left));top:calc(var(--top-h) + 6px);opacity:0;pointer-events:none;font-family:var(--mono);will-change:opacity}
+.is-live .sheet{display:flex;align-items:center;gap:10px;position:absolute;z-index:4;left:max(20px,env(safe-area-inset-left));top:calc(var(--top-h) + 6px);opacity:0;pointer-events:none;font-family:var(--mono);will-change:opacity}
 .sheet ol{list-style:none;margin:0;padding:0;display:flex;gap:5px}
 .sheet .bx{border-color:#ffffff8c}
 .sheet .now{display:none}
@@ -157,7 +155,7 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
 @media (min-width:900px) and (min-height:600px){
   .is-live .front{height:100%}
   .is-live .front img{object-position:55% 56%}
-  .is-live .front::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0d0e12d9 0,#0d0e1280 34%,#0d0e1200 60%),linear-gradient(0deg,#0d0e12b3 0,#0d0e1200 32%)}
+  .is-live .front::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0d0e12e6 0,#0d0e12a6 34%,#0d0e1200 60%),linear-gradient(0deg,#0d0e12b3 0,#0d0e1280 30%,#0d0e1200 52%)}
   .is-live .beat{padding:calc(var(--top-h) + 64px) 5vw 64px max(48px,5vw)}
   .is-live .beat .hd,.is-live .beat .ft{max-width:min(40vw,34rem)}
   .is-live .beat h1{font-size:clamp(3.4rem,6.4vw,6.4rem)}
@@ -177,16 +175,16 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
 @media (max-height:500px) and (min-width:560px){
   .is-live .front{height:100%}
   .is-live .front::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0d0e12e6 0,#0d0e1299 40%,#0d0e1200 66%)}
-  .is-live .beat{padding:calc(var(--top-h) + 34px) 50% calc(var(--bar-h) + 8px) max(18px,env(safe-area-inset-left))}
+  .is-live .beat{padding:calc(var(--top-h) + 34px) 50% calc(var(--bar-h) + 8px) max(20px,env(safe-area-inset-left))}
   .is-live .beat h1,.is-live .beat h2{font-size:2.2rem}
   .is-live .beat.hero .ft{top:auto;bottom:calc(var(--bar-h) + 10px);right:50%}
   .is-live .beat.chk::before,.is-live .beat.in::before,.is-live .beat.pass::before{background:linear-gradient(90deg,#0d0e12e6 0,#0d0e12a6 34%,#0d0e1200 58%)}
   .hero-name{display:none}.what{font-size:16px}.what small{display:none}.note,.q blockquote p{font-size:15px}
-  .is-live .beat.pass{padding-right:18px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;grid-template-rows:auto minmax(0,1fr)}
+  .is-live .beat.pass{padding-right:max(20px,env(safe-area-inset-right));grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;grid-template-rows:auto minmax(0,1fr)}
   .is-live .beat.pass .hd{grid-column:1;grid-row:1}.is-live .beat.pass .ft{grid-column:1;grid-row:2;align-self:start}
   .is-live .beat.pass .paper{grid-column:2;grid-row:1/3;align-self:center;margin:0;padding:10px 12px}
   .paper li{font-size:15px}.paper ol{gap:3px 10px}
-  .is-live .signp{padding:calc(var(--top-h) + 14px) 18px calc(var(--bar-h) + 8px);display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+  .is-live .signp{padding:calc(var(--top-h) + 14px) max(20px,env(safe-area-inset-right)) calc(var(--bar-h) + 8px) max(20px,env(safe-area-inset-left));display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
   .signp li{font-size:1.7rem}.signp .tel{font-size:2.5rem;margin-top:0}.signp .fine{display:none}
 }
 
@@ -197,7 +195,7 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
 /* final check: the sheet's PASS stamp rules were written for .stamp, which also hit the review tickets' 'Reply from the garage' stamps (hidden in the live page, printed over the quote without motion). Now scoped to #stamp. */
 
 /* ---------- checker ---------- */
-.checker{position:relative;background:var(--lift);color:var(--white);padding:72px 18px 64px;overflow:hidden}
+.checker{position:relative;background:var(--lift);color:var(--white);padding:72px 20px 64px;overflow:hidden}
 .checker::before,.checker::after{content:"";position:absolute;top:0;bottom:0;width:10px;background:var(--line)}
 .checker::before{left:0}.checker::after{right:0}
 .ck-in{max-width:980px;margin:0 auto;display:grid;gap:28px}
@@ -228,7 +226,7 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
 .track .win{position:absolute;top:0;bottom:0;right:0;background:repeating-linear-gradient(135deg,#f4c43044 0 8px,#f4c43000 8px 16px)}
 .track .car{position:absolute;top:50%;left:12px;width:38px;height:22px;margin-top:-11px;transition:transform .9s var(--ease)}
 .ck-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:12px;font-weight:800;font-stretch:80%;font-size:17px;text-decoration:none;border:0;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:12px;font-family:var(--cond);font-weight:800;font-stretch:80%;font-size:17px;text-decoration:none;border:0;cursor:pointer}
 .btn.y{background:var(--line);color:var(--ink)}
 .btn.o{background:transparent;color:var(--white);border:1.5px solid #ffffff55}
 .remind{margin:4px 0 0;font-size:16px;color:#e9e7df}
@@ -239,10 +237,10 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
 /* ---------- people / tickets ---------- */
 .people{background:var(--pit);color:var(--white);padding:76px 0 56px;position:relative;overflow:hidden}
 .people::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--line)}
-.ppl-head{padding:0 18px;max-width:1100px;margin:0 auto}
+.ppl-head{padding:0 20px;max-width:1100px;margin:0 auto}
 .people h2{margin:0;font-weight:900;font-stretch:64%;font-size:clamp(3rem,2rem + 7vw,6.5rem);line-height:.86;text-transform:uppercase}
 .people .lede{margin:12px 0 0;font-size:18px;max-width:36ch;font-weight:500}
-.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:34px 18px 34px;scroll-padding:0 18px;overscroll-behavior-x:contain;scrollbar-width:none;cursor:grab}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:34px 20px 34px;scroll-padding:0 20px;overscroll-behavior-x:contain;scrollbar-width:none;cursor:grab}
 .rail::-webkit-scrollbar{display:none}
 .rail.drag{cursor:grabbing;scroll-snap-type:none}
 .ticket{flex:0 0 min(84vw,340px);scroll-snap-align:start;background:var(--paper);color:var(--ink);border-radius:6px;padding:20px 20px 18px;position:relative;box-shadow:0 14px 30px #4a0a0566;transform:rotate(var(--r,0deg));transition:transform .5s var(--ease)}
@@ -255,12 +253,12 @@ html:not(.live) .paper li .bx svg{opacity:1;transform:none}
 .ticket:not(.in) .stamp{transform:rotate(-8deg) scale(1.5);opacity:0}
 .ticket.end{display:flex;flex-direction:column;justify-content:space-between;background:var(--ink);color:var(--white)}
 .ticket.end p{font-size:22px;font-weight:800;font-stretch:80%;line-height:1.15;margin:0}
-.rail-ctl{display:flex;gap:10px;padding:0 18px;max-width:1100px;margin:0 auto}
+.rail-ctl{display:flex;gap:10px;padding:0 20px;max-width:1100px;margin:0 auto}
 .rail-ctl button{width:52px;height:48px;border-radius:12px;border:1.5px solid #ffffff66;background:transparent;color:var(--white);font:800 20px/1 var(--cond);cursor:pointer}
 .rail-ctl .hint{font-family:var(--mono);font-size:15px;align-self:center;margin-left:6px;color:#ffe3dc}
 
 /* ---------- everything you need (the sign board) ---------- */
-.details{background:var(--wall);color:var(--ink);padding:64px 18px 40px}
+.details{background:var(--wall);color:var(--ink);padding:64px 20px 40px}
 .board{max-width:1100px;margin:0 auto}
 .board .name{margin:0;color:var(--signblue);font-weight:900;font-stretch:72%;text-transform:uppercase;font-size:clamp(2.6rem,1.6rem + 6vw,5.6rem);line-height:.88;letter-spacing:.005em}
 .board .name small{display:block;font-size:.42em;color:var(--pit);letter-spacing:.02em;margin-top:.25em}
