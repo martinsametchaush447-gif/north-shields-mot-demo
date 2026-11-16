@@ -1193,7 +1193,7 @@ function readScroll() {
   uT = clamp(y / unit, 0, uEnd); inView = y > -H - 40 && y < uEnd * unit + H + 40;
 }
 var lastW = 0, lastH = 0;
-addEventListener('resize', function () { if (Math.abs(innerWidth - lastW) > 2 || Math.abs(innerHeight - lastH) > 130) { lastW = innerWidth; lastH = innerHeight; layout(); kick(); } });
+addEventListener('resize', function () { if (Math.abs(innerWidth - lastW) > 2 || Math.abs(innerHeight - lastH) > innerHeight * 0.4) { lastW = innerWidth; lastH = innerHeight; layout(); kick(); } });
 
 /* frame the subject inside the free part of the screen (between title and caption on a phone; right of the text on desktop) */
 var FRAME = { phone: { ux: .94, uy: .40, ox: 0, oy: -.02 }, short: { ux: .94, uy: .36, ox: 0, oy: -.055 }, desk: { ux: .54, uy: .70, ox: .19, oy: 0 }, land: { ux: .46, uy: .66, ox: .25, oy: -.04 } };
